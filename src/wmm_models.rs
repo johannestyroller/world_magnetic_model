@@ -18,7 +18,7 @@ pub struct WmmModel {
 
 #[derive(Clone, Debug, PartialEq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-pub(crate) struct WmmErrorModel {
+pub struct WmmErrorModel {
     pub model_version: i32,
     pub(crate) declination_constant_error_factor: f32,
     pub(crate) declination_variable_error_factor: f32,
