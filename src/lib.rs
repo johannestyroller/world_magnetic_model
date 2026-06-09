@@ -73,7 +73,7 @@ pub use uom;
 mod error;
 mod math;
 mod wmm;
-mod wmm_models;
+pub mod wmm_models;
 
 use libm::{asinf, atan2f, cos, cosf, sinf, sqrt, sqrtf, tan};
 use time::Date;

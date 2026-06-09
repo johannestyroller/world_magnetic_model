@@ -8,18 +8,18 @@ const NUMBER_OF_MODELS: usize = 2;
 const WMM_VALIDITY_RANGE_IN_YEARS: i32 = 5;
 
 #[derive(Debug, PartialEq)]
-pub(crate) struct WmmModel {
-    pub(crate) model_version: i32,
-    pub(crate) g_mfc: [f32; 90],
-    pub(crate) h_mfc: [f32; 90],
-    pub(crate) g_svc: [f32; 90],
-    pub(crate) h_svc: [f32; 90],
+pub struct WmmModel {
+    pub model_version: i32,
+    pub g_mfc: [f32; 90],
+    pub h_mfc: [f32; 90],
+    pub g_svc: [f32; 90],
+    pub h_svc: [f32; 90],
 }
 
 #[derive(Clone, Debug, PartialEq)]
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub(crate) struct WmmErrorModel {
-    pub(crate) model_version: i32,
+    pub model_version: i32,
     pub(crate) declination_constant_error_factor: f32,
     pub(crate) declination_variable_error_factor: f32,
     pub(crate) inclination_uncertainty: f32,
@@ -61,7 +61,7 @@ fn date_to_model_version(date: Date) -> i32 {
 }
 
 /// Function that returns WmmModel and WmmErrorModel for given date.
-pub(crate) fn select_models(
+pub fn select_models(
     date: Date,
 ) -> Result<(&'static WmmModel, &'static WmmErrorModel), crate::error::Error> {
     let model_version = date_to_model_version(date);
